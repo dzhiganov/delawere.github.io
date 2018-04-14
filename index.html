@@ -1,110 +1,54 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="stylesheet" href="assets/css/normalize.css">
-		<title>memory</title>
-	</head>
-	<body>
-		<div class="main-cont" data-tid="App">
-			
-			<div class="start-page">
-				<div class="start-page__img">
-					<img src="assets/images/StartGame.png" alt="">
-				</div>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/normalize.css">
+    <link rel="shortcut icon" href="src/favicon/favicon.ico" type="image/x-icon">
+    <title>memory-game</title>
+  </head>
+  <body>
 
-				<h1 class="start-page__title">Memory Game</h1>
-				
-				<button class="btn_start-game" onclick="startGame();" data-tid="NewGame-startGame">
-					Начать игру
-				</button>
-			</div>
+    <div class="main-cont">
 
-			<div class="game-page">
+      <div class="start-page">
+        <div class="start-page__img">
+          <img src="src/img/StartGame.png" alt="">
+        </div>
+        <h1 class="start-page__title">Memory Game</h1>
+        <button class="btn_start-game">
+          Начать игру
+        </button>
+      </div>
 
-				<aside class="side-bar">
+      <div class="game-page">
+        <aside class="side-bar">
+          <p class="score-table">Очки: </p>
+        </aside>
 
-					<p class="score-table" data-tid="Menu-scores">Очки: </p>
+        <div class="play-board">
+        </div>
+      </div>
 
-					<a href="#" class="btn_new-game" onclick="reload()" data-tid="Menu-newGame">
-						Начать заново
-					</a>
+      <div class="end-page">
+        <div class="end-page__img">
+          <img src="src/img/EndGame.png" alt="">
+        </div>
+        <h2 class="score"></h2>
+        <button class="btn_repeat-game">
+          Еще раз
+        </button>
+      </div>
 
-				</aside>
+    </div>
 
-				<ul class="play-board">
-					<li class="card card-1" data-tid="Card-flipped">
-						<img alt="card" id="card-1" onclick="clickCard(1); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-2" data-tid="Card-flipped">
-						<img  alt="card" id="card-2" onclick="clickCard(2); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-3" data-tid="Card-flipped">
-						<img  alt="card" id="card-3" onclick="clickCard(3); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-4" data-tid="Card-flipped">
-						<img  alt="card" id="card-4" onclick="clickCard(4); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-5" data-tid="Card-flipped">
-						<img  alt="card" id="card-5" onclick="clickCard(5); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-6" data-tid="Card-flipped">
-						<img  alt="card" id="card-6" onclick="clickCard(6); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-7" data-tid="Card-flipped">
-						<img  alt="card" id="card-7" onclick="clickCard(7); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-8" data-tid="Card-flipped">
-						<img  alt="card" id="card-8" onclick="clickCard(8); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-9" data-tid="Card-flipped">
-						<img  alt="card" id="card-9" onclick="clickCard(9); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-10" data-tid="Card-flipped">
-						<img  alt="card" id="card-10" onclick="clickCard(10); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-11" data-tid="Card-flipped">
-						<img  alt="card" id="card-11" onclick="clickCard(11); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-12" data-tid="Card-flipped">
-						<img  alt="card" id="card-12" onclick="clickCard(12); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-13" data-tid="Card-flipped">
-						<img  alt="card" id="card-13" onclick="clickCard(13); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-14" data-tid="Card-flipped">
-						<img  alt="card" id="card-14" onclick="clickCard(14); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-15" data-tid="Card-flipped">
-						<img  alt="card" id="card-15" onclick="clickCard(15); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-16" data-tid="Card-flipped">
-						<img  alt="card" id="card-16" onclick="clickCard(16); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-17" data-tid="Card-flipped">
-						<img  alt="card" id="card-17" onclick="clickCard(17); sound()"  data-tid="Card">
-					</li>
-					<li class="card card-18" data-tid="Card-flipped">
-						<img  alt="card" id="card-18" onclick="clickCard(18); sound()"  data-tid="Card">
-					</li>
-				</ul>
-			</div>
+    <template id="card-template" style="display: none">
+      <div class="card">
+        <img src="" alt="Рубашка вверх" class="card_up">
+        <div class="card_down"></div>
+      </div>
+    </template>
 
-			<div class="end-page">
-				<div class="end-page__img">
-					<img src="assets/images/EndGame.png" alt="">
-				</div>
-
-				<h2 class="score"></h2>
-				
-				<button class="btn_repeat-game" onclick="reload()" data-tid="EndGame-retryGame">
-					Еще раз
-				</button>
-			</div>
-
-		</div>
-
-	<script src="assets/scripts/script.js"></script>
-	</body>
+  <script src="src/js/script.js"></script>
+  </body>
 </html>
